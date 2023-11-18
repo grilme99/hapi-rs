@@ -1,7 +1,7 @@
 use std::path::Path;
 
 fn main() {
-    let build_enabled = env::var("HAPI_BUILD_ENABLED")
+    let build_enabled = std::env::var("HAPI_BUILD_ENABLED")
         .map(|v| v == "1")
         .unwrap_or(true);
     
