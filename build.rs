@@ -1,6 +1,14 @@
 use std::path::Path;
 
 fn main() {
+    let build_enabled = env::var("HAPI_BUILD_ENABLED")
+        .map(|v| v == "1")
+        .unwrap_or(true);
+    
+    if !build_enabled {
+        return
+    }
+    
     if std::env::var("DOCS_RS").is_ok() {
         return;
     }
